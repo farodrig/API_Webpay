@@ -1,5 +1,9 @@
 
-## Inicialización de la API:
+README api_webpay
+
+
+
+Inicialización de la API:
 
 	Para hacer funcionar la api deben instalarse los siguientes paquetes:
 		- flask
@@ -53,9 +57,9 @@ Protocolo de comunicación de la API:
 
 	7. La API redirige a la página de éxito o rechazo del cliente y pasa por método POST la orden de compra del producto.
 
-	8.`*` Junto con esto, el cliente puede consultar a la API por la información relacionada por la compra de una orden de compra específica. Para esto se comunica por 		método POST con la API, mandando 'empresa' con el Nombre único de la empresa y 'orden' con el número de la orden de compra que desea solicitar.
+	8.* Junto con esto, el cliente puede consultar a la API por la información relacionada por la compra de una orden de compra específica. Para esto se comunica por 		método POST con la API, mandando 'empresa' con el Nombre único de la empresa y 'orden' con el número de la orden de compra que desea solicitar.
 
-	9.`*` La API retorna un diccionario con los siguientes datos:
+	9.* La API retorna un diccionario con los siguientes datos:
 		- 'orden': Orden de compra solicitado
 		- 'sesion': ID de sesion del comprador
 		- 'monto': Monto de la compra.
@@ -68,7 +72,7 @@ Protocolo de comunicación de la API:
 		- 'tipo_cuota': Tipo de Cuotas solicitadas al momento de la compra.
 		- 'num_cuota': Cantidad de cuotas solicitadas.
 
-	`*` Relacionado con "Petición de información de una orden de compra"
+	* Relacionado con "Petición de información de una orden de compra"
 
 
 
@@ -123,13 +127,13 @@ Llamadas a la API:
 
 		Ejemplo de uso: 
 
-			Entrega todas las compras que fueron aprobadas
+			#Entrega todas las compras que fueron aprobadas
 			response = requests.post('http://ssb.synaptic.cl/webpay/query/', json={'estado' : 'Aprobada'})
 
-			Entrega todas las compras con monto entre 1000 y 2000
+			#Entrega todas las compras con monto entre 1000 y 2000
 			response = requests.post('http://ssb.synaptic.cl/webpay/query/', json={'monto' : {'min' : 1000, 'max' : 2000}})
 
-			Entrega todas las compras realizadas entre el 1 de Enero y el 10 de Febrero del 2015	
+			#Entrega todas las compras realizadas entre el 1 de Enero y el 10 de Febrero del 2015	
 			response = requests.post('http://ssb.synaptic.cl/webpay/query/', json={'fecha' : {'min' : '1-1-2015', 'max' : '10-02-2015'}})
 		    
 		    if response.status_code != requests.codes.ok:
